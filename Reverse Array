@@ -1,0 +1,26 @@
+1.Reverse array
+
+
+Input :  arr[] = {4, 5, 1, 2}
+Output : arr[] = {2, 1, 5, 4}
+
+Here we can see that input array is completely reverse which means first element takes the last position and last element takes first position similarly for other elements too
+
+Apporach:
+
+Our Main thing is that the last element takes the first position and the first element takes the last position.
+
+So swapping leftmost element and right most element and incrementing left one and decrementing and till it reach base case left is less than right.
+
+
+while (start < end)
+        {
+            temp = arr[start]; 
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        } 
+Time Complexity:O(n)
+Space Complexity:O(1)
+
