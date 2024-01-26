@@ -1,0 +1,18 @@
+Move all negative numbers to beginning and positive to end with constant extra space
+
+
+Two pointers Approach:
+1.Take two pointers low and high
+2.Low=0 and high=n-1
+3.if low pointer is negative then increment low
+4.else swap low and high pointer and decrement high
+
+
+int low = 0;
+        int high = ar.length - 1;
+        while (low <= high) {
+            if (ar[low] <= 0)
+                low++;
+            else
+                swap(ar, low, high--);
+        }
