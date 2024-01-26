@@ -1,0 +1,32 @@
+
+Kth Max and Min element 
+
+Approach-1:
+
+1.Sort all the elements
+2.return k-1 element or n-k-1 element
+
+         Arrays.sort(arr);
+   return arr[k-1];
+
+Time Complexity:O(nlogn)
+Space Complexity:O(1)
+
+Approach-2:
+
+1.Use Min Heap or Max Heap 
+2.add the element in sorting order
+3.print Kth Min element using Min Heap and Kth Max element using Max Heap.
+
+PriorityQueue<Integer> maxHeap=new PriorityQueue<>((a, b) -> b - a);  
+        for(int i=0;i<arr.length;i++){
+            maxHeap.add(arr[i]);
+            if(maxHeap.size()>k){
+                maxHeap.poll();
+            }
+        }  
+        return maxHeap.peek();
+
+Time Complexity:O(nlogk)
+Space Complexity:O(k)
+
