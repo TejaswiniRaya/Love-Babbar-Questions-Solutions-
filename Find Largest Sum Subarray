@@ -1,0 +1,34 @@
+
+Find Largest Sum Subarray
+
+1.Kadane’s Approach
+
+Intuition
+1.whenever we are getting sum negative make sum as zero
+2.We carry the subarray till it gives a positive sum.
+
+b.Intialize max as Long.MIN_VALUE
+c.run a loop from left to right calculate the sum.
+d. And Update the Max value.
+e.According to Kadane’s if sum is negative then make sum is zero
+f.finally return max value;
+
+long maxSubarraySum(int arr[], int n){
+    long sum=0;
+        long max=Long.MIN_VALUE;
+        for(int i=0;i<n;i++){
+            sum+=arr[i];
+            max=Math.max(max,sum);
+            if(sum<0){
+                sum=0;
+            }
+        }
+        return max;
+    }
+    
+
+Time Complexity:O(n)
+Space Complexity:O(1)
+
+
+
