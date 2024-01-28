@@ -1,0 +1,49 @@
+
+Minimize the Heights II
+
+Given an array arr[] denoting heights of N towers and a positive integer K.
+For each tower, you must perform exactly one of the following operations exactly once.
+Increase the height of the tower by K
+Decrease the height of the tower by K
+Find out the minimum possible difference between the height of the shortest and tallest towers after you have modified each tower.
+K = 2, N = 4
+Arr[] = {1, 5, 8, 10}
+Output: 5
+
+
+
+
+
+
+Intitution:
+1.every building either increased or decreased 
+2.sort the array.Increase the arr[0] and decrease arr[n-1]
+3.Then we get minimum height but we don't get some cases because when we increase or decrease the height then there is a possibility of changing the minimum and maximum value.
+4.To get this cases we should find minimum value after decreasing it and maximum value after increasing.
+5.we have to decrease the next element and should increase the present element because our intuition is increase small element and decrease large element.After sorting next element>present element.so we are following that condition
+
+
+Approach:
+1.sort the array. Make small=arr[0] and large=arr[n-1].
+2.get min value compare with small and  element-k,similarly get max compare with large element+k.
+3.get the minimum difference.
+
+
+
+
+ Arrays.sort(arr);
+        int ans=arr[n-1]-arr[0];
+        int small=arr[0]+k;
+        int large=arr[n-1]-k;
+        for(int i=0;i<n-1;i++){
+            int min=Math.min(small,arr[i+1]-k);
+            int max=Math.max(large,arr[i]+k);
+            if(min>0){
+            ans=Math.min(ans,max-min);
+            }
+        }
+        return ans;
+
+
+
+
